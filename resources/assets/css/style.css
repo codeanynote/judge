@@ -1,0 +1,190 @@
+
+.overflow-x-hidden{
+    overflow-x: hidden;
+}
+
+.login-register-header{    
+    margin: 100px auto;
+    margin-bottom: 0;
+    float: none;
+}
+
+#login-wrapper {
+    margin: 30px auto;
+    float: none;
+}
+
+.login-register-footer{
+    margin: 0 auto;
+    margin-bottom: 20px;
+    float: none;
+}
+
+.login-footer-logo{
+    background-image:url('../img/icon-badminton.png');
+    background-size: contain;
+    width:100px;
+    height:100px;   
+}
+
+#header .logo{
+    margin-top:-10px;
+    margin-left:10px;
+    font-size: 20px;
+}
+
+#header .user-nav ul li.dropdown.settings .dropdown-menu{
+    left: -70px;
+}
+
+.checkbox label, .radio label{
+    padding-left: 0;
+}
+.active-title{
+    font-size:16px !important;
+    /*font-weight: bold;*/
+}
+
+.data-table th, .data-table td{
+    font-size:12px;
+    vertical-align: bottom !important;
+}
+
+.data-table th{
+    text-align: center;
+}
+
+.dataTables_filter input[type=search]{
+    margin-left:10px;    
+    margin-right: 10px;
+}
+
+.border-none{
+    border:none;
+}
+.border-bottom{
+    border-bottom: solid 1px #ccc;
+}
+.text-underline{
+    text-decoration: underline;
+}
+.detail-form label{
+    font-weight: normal;
+}
+
+.detail-form .form-control{
+    font-size:16px;
+    margin-top: 2px;
+    margin-left:20px;
+}
+
+.detail-form .row{
+    border-bottom: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+.modal-dialog{
+    z-index: 1500;
+}
+
+.back-white-gray{
+    background-color: #eee !important;
+}
+
+th.rotate{
+    position: relative;    
+    padding: 10px;
+    height: 140px;
+}
+
+th.rotate span{
+    transform-origin: 0 50%;
+    transform: rotate(-90deg); 
+    white-space: nowrap; 
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    overflow: hidden;
+    
+    text-overflow: ellipsis;
+    width: 140px;
+    text-align: left;
+}
+
+
+input[type="checkbox"].ios8-switch {
+    position: absolute;
+    margin: 8px 0 0 16px;    
+  }
+  input[type="checkbox"].ios8-switch + label {
+    position: relative;
+    padding: 5px 0 0 50px;
+    line-height: 2.0em;
+  }
+  input[type="checkbox"].ios8-switch + label:before {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 40px; /* x*5 */
+    height: 24px; /* x*3 */
+    border-radius: 16px; /* x*2 */
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  input[type="checkbox"].ios8-switch + label:after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0px;
+    top: 0px;
+    width: 24px; /* x*3 */
+    height: 24px; /* x*3 */
+    border-radius: 16px; /* x*2 */
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  input[type="checkbox"].ios8-switch + label:hover:after {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  }
+  input[type="checkbox"].ios8-switch:checked + label:after {
+    margin-left: 16px;
+  }
+  input[type="checkbox"].ios8-switch:checked + label:before {
+    background: #55D069;
+  }
+  
+  /* SMALL */
+  
+  input[type="checkbox"].ios8-switch-sm {
+    margin: 3px 0 0 10px;
+    display:none;
+  }
+  input[type="checkbox"].ios8-switch-sm + label {
+    position: relative;
+    padding: 0 0 0 32px;
+    line-height: 1.3em;
+  }
+  input[type="checkbox"].ios8-switch-sm + label:before {
+    width: 25px; /* x*5 */
+    height: 15px; /* x*3 */
+    border-radius: 10px; /* x*2 */
+  }
+  input[type="checkbox"].ios8-switch-sm + label:after {
+    width: 15px; /* x*3 */
+    height: 15px; /* x*3 */
+    border-radius: 10px; /* x*2 */
+  }
+  input[type="checkbox"].ios8-switch-sm + label:hover:after {
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+  }
+  input[type="checkbox"].ios8-switch-sm:checked + label:after {
+    margin-left: 10px; /* x*2 */
+  }
+
