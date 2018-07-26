@@ -112,6 +112,14 @@
 
 @section('script')
 <script>
+    $(document).ready(function() {
+        $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
+    });
     $(function () {
         $('#event_start_date').change(function () {
             var start_date = $(this).datepicker('getDate');

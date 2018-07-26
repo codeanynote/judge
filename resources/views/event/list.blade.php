@@ -47,7 +47,7 @@
                         <tbody>
                             @foreach($events as $key=>$event)
                             <tr>
-                                <td nowrap align="right">E{{substr($event->year, 2).$event->event_number}}</td>
+                                <td nowrap align="right">E{{str_pad($event->event_id, 4, "0", STR_PAD_LEFT)}}</td>
                                 <td nowrap>{{$event->event_name}}</td>
                                 <td nowrap>{{$event->year}}</td>
                                 <td nowrap>{{$event->season}}</td>
