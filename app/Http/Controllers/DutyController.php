@@ -45,7 +45,7 @@ class DutyController extends Controller {
             $duty = array();
             foreach ($event_list as $key1 => $event) {
                 $sql = "select * from judge_dt_duty where judge_id=" . $judge->judge_id
-                        . " and event_id=" . $event->event_id;
+                    . " and event_id=" . $event->event_id;
                 $result = \DB::select($sql);
                 if (sizeof($result) > 0) {
                     $result[0]->season = $event->season;
@@ -55,8 +55,8 @@ class DutyController extends Controller {
                     array_push($duty, $result[0]);
                 } else {
                     $temp = (object) ['judge_id' => $judge->judge_id, 'event_id' => $event->event_id, 'season' => $event->season,
-                                'event_start_date' => $event->event_start_date, 'event_finish_date' => $event->event_finish_date,
-                                'event_level' => $event->event_level];
+                        'event_start_date' => $event->event_start_date, 'event_finish_date' => $event->event_finish_date,
+                        'event_level' => $event->event_level];
                     array_push($duty, $temp);
                 }
             }
@@ -66,8 +66,8 @@ class DutyController extends Controller {
         $event_event_list = array();
         for ($i = 0; $i < sizeof($event_season_list); $i ++) {
             $sql = "select event_name, event_start_date, event_finish_date, event_level from judge_lst_events "
-                    . " where year>=" . $from_year . " and year<=" . $to_year . " and season='" . $event_season_list[$i]->season . "' "
-                    . " order by season desc, event_start_Date desc, event_id";
+                . " where year>=" . $from_year . " and year<=" . $to_year . " and season='" . $event_season_list[$i]->season . "' "
+                . " order by season desc, event_start_Date desc, event_id";
             $event_event_list[$i] = \DB::select($sql);
         }
         return view('duty.ljlist', compact('page_title', 'judge_list', 'event_list', 'event_season_list', 'event_event_list', 'years', 'from_year', 'to_year'));

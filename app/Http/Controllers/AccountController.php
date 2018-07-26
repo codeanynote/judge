@@ -13,7 +13,7 @@ class AccountController extends Controller {
     private $account;
 
     function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth.admin');
         $account = new User();
     }
 

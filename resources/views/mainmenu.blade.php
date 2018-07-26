@@ -46,6 +46,7 @@
             </li>
         </ul>
     </li>
+    @if(Auth::user()->permission==1)
     <li class="nav-dropdown @if($page_title=='Account Add' || $page_title=='Account List' || $page_title=='Account Detail' || $page_title=='Account Edit') active open @endif">
         <a href="#" title="Events">
             <i class="fa fa-table"></i> Accounts
@@ -60,22 +61,23 @@
         </ul>
     </li>
     <li class="nav-dropdown @if($page_title=='Countries' || $page_title=='Skill Levels' || $page_title=='Skill Level Detail' || $page_title=='Event Levels' || $page_title=='Event Level Detail') active open @endif">
-            <a href="#" title="Events">
-                <i class="fa fa-cog"></i> Field Values
-            </a>
-            <ul class="nav-sub">
-                <li class="@if($page_title=='Countries') active @endif">
-                    <a href="{{route('country.list')}}">Countries</a>
-                </li>
-                <li class="@if($page_title=='Skill Levels' || $page_title=='Skill Level Detail') active @endif">
-                    <a href="{{route('skill.list')}}">Skill Levels</a>
-                </li>
-                <li class="@if($page_title=='Event Levels' || $page_title=='Event Level Detail') active @endif">
-                    <a href="{{route('event_level.list')}}">Event Levels</a>
-                </li>
-                <li class="@if($page_title=='Regions' || $page_title=='Region Detail') active @endif">
-                    <a href="{{route('region.list')}}">Regions</a>
-                </li>
-            </ul>
-        </li>
+        <a href="#" title="Events">
+            <i class="fa fa-cog"></i> Field Values
+        </a>
+        <ul class="nav-sub">
+            <li class="@if($page_title=='Countries') active @endif">
+                <a href="{{route('country.list')}}">Countries</a>
+            </li>
+            <li class="@if($page_title=='Skill Levels' || $page_title=='Skill Level Detail') active @endif">
+                <a href="{{route('skill.list')}}">Skill Levels</a>
+            </li>
+            <li class="@if($page_title=='Event Levels' || $page_title=='Event Level Detail') active @endif">
+                <a href="{{route('event_level.list')}}">Event Levels</a>
+            </li>
+            <li class="@if($page_title=='Regions' || $page_title=='Region Detail') active @endif">
+                <a href="{{route('region.list')}}">Regions</a>
+            </li>
+        </ul>
+    </li>
+    @endif
 </ul>

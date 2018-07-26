@@ -47,13 +47,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Event Start Date</label>
+                        <label class="col-sm-3 control-label">Event Start Date*</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control datepicker" required id="event_start_date" name="event_start_date">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Event Finish Date</label>
+                        <label class="col-sm-3 control-label">Event Finish Date*</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control datepicker" required id="event_finish_date" name="event_finish_date">
                         </div>
@@ -78,21 +78,21 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" >Event Manager*</label>
+                        <label class="col-sm-3 control-label" >Event Manager</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" required name="event_manager" value="">
+                            <input type="text" class="form-control" name="event_manager" value="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" >Event Deputy Mgr*</label>
+                        <label class="col-sm-3 control-label" >Event Deputy Mgr</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" required name="event_deputy_mgr" value="">
+                            <input type="text" class="form-control" name="event_deputy_mgr" value="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" >Lead Assessor*</label>
+                        <label class="col-sm-3 control-label" >Lead Assessor</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" required name="lead_assessor" value="">
+                            <input type="text" class="form-control" name="lead_assessor" value="">
                         </div>
                     </div>
 
@@ -114,10 +114,26 @@
 <script>
     $(function () {
         $('#event_start_date').change(function () {
-            var date = new Date($(this).val());
+            var start_date = $(this).datepicker('getDate');
+            var end_date = $('#event_finish_date').datepicker('getDate');
+            var date = new Date(start_date);
             var year = date.getFullYear();
             $('#year').val(year);
             $('#season').val(year + '-' + Number(year + 1));
+            if(start_date>0 && end_date>0){
+                if((end_date-start_date)<0){
+                    $('#event_finish_date').datepicker('setDate', new Date(start_date));
+                }
+            }
+        });
+        $('#event_finish_date').change(function () {
+            var start_date = $('#event_start_date').datepicker('getDate');
+            var end_date = $('#event_finish_date').datepicker('getDate');
+            if(start_date>0 && end_date>0){
+                if((end_date-start_date)<0){
+                    $('#event_start_date').datepicker('setDate', new Date(end_date));
+                }
+            }
         });
 
         var judges = [

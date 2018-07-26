@@ -18,8 +18,9 @@ class CheckIfAdminAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         $auth=Auth::guard('admins');
-        if (!$auth->check()) {
-            return redirect('/admin');
+        if (Auth::user()->permission!=1) {
+            var_dump($auth->user());
+            return redirect('/');
         }
 
         /*if($auth->user()->isAdmin() != 1){

@@ -81,8 +81,8 @@
                                 <th colspan="2">Event Dates</th>
                                 @foreach ($event_season_list as $i=>$season)
                                     @foreach($event_event_list[$i] as $k=>$event)
-                                        <th class="rotate" title="{{date("d/m/Y", strtotime($event->event_start_date)).' ~ '.date("d/m/Y", strtotime($event->event_finish_date))}}">
-                                            <span>{{date("d/m/Y", strtotime($event->event_start_date)).' ~ '.date("d/m/Y", strtotime($event->event_finish_date))}}</span>
+                                        <th class="rotate event_date" title="{{date("d/m/Y", strtotime($event->event_start_date)).' ~ '.date("d/m/Y", strtotime($event->event_finish_date))}}">
+                                            <span>{{date("d/m/Y", strtotime($event->event_start_date)).'~ '.date("d/m/Y", strtotime($event->event_finish_date))}}</span>
                                         </th>
                                     @endforeach
                                 @endforeach

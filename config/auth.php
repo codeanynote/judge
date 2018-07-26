@@ -12,7 +12,7 @@ return [
       | as required, but they're a perfect start for most applications.
       |
      */
-    'table' => 'users',
+    'table' => 'judge_users',
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
@@ -72,6 +72,7 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+            'table' => 'judge_users',
         ],
     ],
     /*

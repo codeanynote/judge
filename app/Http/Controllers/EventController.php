@@ -42,9 +42,6 @@ class EventController extends Controller {
             'season' => 'required',
             'event_start_date' => 'required',
             'event_finish_date' => 'required',
-            'event_manager' => 'required',
-            'event_deputy_mgr' => 'required',
-            'lead_assessor' => 'required'
         ]);
         $sql = "select max(event_number) max_num from judge_lst_events where year='" . $request['year'] . "'";
         $result = \DB::select($sql);
