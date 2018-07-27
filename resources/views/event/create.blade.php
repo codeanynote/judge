@@ -15,7 +15,7 @@
 
 <div class="row">
 
-    <form class="form-horizontal form-border" action="{{route('event.create')}}" method="post" autocomplete="off">
+    <form id="event_form" class="form-horizontal form-border" action="{{route('event.create')}}" method="post" autocomplete="off">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -122,15 +122,18 @@
     });
     $(function () {
         $('#event_start_date').change(function () {
-            var start_date = $(this).datepicker('getDate');
+            var start_date = selected_date = $('#event_start_date').datepicker('getDate');
             var end_date = $('#event_finish_date').datepicker('getDate');
-            var date = new Date(start_date);
-            var year = date.getFullYear();
+            var date_fr = new Date(selected_date );
+            var year = date_fr.getFullYear();
             $('#year').val(year);
             $('#season').val(year + '-' + Number(year + 1));
             if(start_date>0 && end_date>0){
-                if((end_date-start_date)<0){
-                    $('#event_finish_date').datepicker('setDate', new Date(start_date));
+                if((end_date-start_date)<=0){
+                    $('#event_finish_date').after('<div class="warning" style="color:red">Start date should be earlier than Finish date.</div>');
+                    // $('#event_finish_date').datepicker('setDate', new Date(start_date-86400000));
+                }else{
+                    $('#event_finish_date').nextAll('.warning').remove();
                 }
             }
         });
@@ -139,7 +142,10 @@
             var end_date = $('#event_finish_date').datepicker('getDate');
             if(start_date>0 && end_date>0){
                 if((end_date-start_date)<0){
-                    $('#event_start_date').datepicker('setDate', new Date(end_date));
+                    $('#event_finish_date').after('<div class="warning" style="color:red">Start date should be earlier than Finish date.</div>');
+                    // $('#event_start_date').datepicker('setDate', new Date(end_date-86400000));
+                }else{
+                    $('#event_finish_date').nextAll('.warning').remove();
                 }
             }
         });
@@ -166,5 +172,21 @@
     function toinfoclick() {
         $('#toinfo').prop('checked', true);
     }
+
+    $('#event_form').submit(function(e){
+        var start_date = $('#event_start_date').datepicker('getDate');
+        var end_date = $('#event_finish_date').datepicker('getDate');
+        if(start_date>0 && end_date>0){
+            if((end_date-start_date)<0){
+                e.preventDefault();
+                $('#event_finish_date').after('<div class="warning" style="color:red">Start date should be earlier than Finish date.</div>');
+                // $('#event_start_date').datepicker('setDate', new Date(end_date-86400000));
+                return;
+            }else{
+                $('#event_finish_date').nextAll('.warning').remove();
+
+            }
+        }
+    })
 </script>
 @stop
